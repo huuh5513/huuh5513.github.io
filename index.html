@@ -118,12 +118,12 @@ p{margin:0;text-wrap:pretty}
 @media (max-width:420px){.brand b{display:none}}
 
 /* ---------- hero ---------- */
-.hero{padding-block:clamp(36px,7vw,96px) clamp(40px,6vw,72px)}
-.hero-grid{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(0,1fr);gap:clamp(28px,6vw,88px);align-items:end}
-.status{display:inline-flex;align-items:center;gap:10px;font-size:14px;font-weight:500;color:var(--ink-2);margin-bottom:28px}
+.hero{padding-block:clamp(28px,4.5vw,64px) clamp(36px,5vw,56px)}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,.9fr);gap:clamp(28px,6vw,88px);align-items:end}
+.status{display:inline-flex;align-items:center;gap:10px;font-size:14px;font-weight:500;color:var(--ink-2);margin-bottom:18px}
 .status i{width:8px;height:8px;border-radius:50%;background:#1F9D63;box-shadow:0 0 0 4px color-mix(in srgb,#1F9D63 18%,transparent)}
-.hero h1{font-size:clamp(56px,10.5vw,148px);line-height:.92;font-weight:600;letter-spacing:-.035em}
-[data-lang="ar"] .hero h1{font-size:clamp(60px,11vw,152px);line-height:1.05;letter-spacing:0}
+.hero h1{font-size:clamp(54px,8.6vw,124px);line-height:.92;font-weight:600;letter-spacing:-.035em}
+[data-lang="ar"] .hero h1{font-size:clamp(58px,8.8vw,128px);line-height:1.05;letter-spacing:0}
 .hero .alt{margin-top:14px;font-size:14px;color:var(--muted)}
 .hero h2{margin-top:clamp(22px,3vw,34px);font-size:clamp(24px,3.2vw,40px);line-height:1.2;font-weight:400;color:var(--ink-2);max-width:24ch}
 .hero h2 em{font-style:normal;color:var(--accent)}
@@ -139,13 +139,18 @@ p{margin:0;text-wrap:pretty}
 .btn.sm{height:40px;padding:0 16px;font-size:14.5px}
 [data-lang="ar"] .flip{transform:scaleX(-1)}
 
+.latest{display:inline-flex;align-items:center;gap:10px;margin-top:22px;font-size:14.5px;color:var(--ink-2);text-decoration:none;padding:8px 14px 8px 12px;border-radius:999px;border:1px solid var(--line);background:var(--surface);transition:border-color .2s}
+.latest:hover{border-color:var(--ink)}
+.latest b{font-weight:600;color:var(--ink)}
+.latest .dot{width:8px;height:8px;border-radius:2px;background:var(--accent)}
+.latest svg{width:14px;height:14px}
 .portrait{position:relative;margin:0}
 .portrait .frame{position:relative;border-radius:28px;overflow:hidden;background:#C9D1D8;aspect-ratio:4/5;box-shadow:0 30px 60px -36px rgba(0,0,0,.45)}
 .portrait img{width:100%;height:100%;object-fit:cover;object-position:50% 40%}
 .portrait figcaption{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:14px;font-size:13.5px;color:var(--muted)}
 .portrait figcaption svg{width:44px;height:22px;flex:none}
 
-.proof{margin-top:clamp(44px,6vw,80px);display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--line)}
+.proof{margin-top:clamp(36px,4.5vw,56px);display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--line)}
 .proof div{padding:22px 20px 4px 0;border-inline-end:1px solid var(--line);min-width:0}
 [data-lang="ar"] .proof div{padding:22px 0 4px 20px}
 .proof div:last-child{border-inline-end:0}
@@ -429,6 +434,7 @@ dialog[open]{display:flex;align-items:flex-end;justify-content:center}
             <a class="btn quiet" href="#contact"><span data-l="ar">تواصل معي</span><span data-l="en">Get in touch</span></a>
             <a class="btn quiet" href="https://huuh5513.github.io/Hussam_Fodah_CV.pdf" target="_blank" rel="noopener"><span data-l="ar">السيرة الذاتية PDF</span><span data-l="en">CV (PDF)</span><svg aria-hidden="true"><use href="#ext"/></svg></a>
           </div>
+          <a class="latest" href="#work" data-case-link="lineform"><span class="dot" aria-hidden="true"></span><span data-l="ar">أحدث عمل: <b lang="en">Lineform</b> — محاكي طوابير منشور</span><span data-l="en">Latest: <b>Lineform</b> — a live queue simulator</span><svg aria-hidden="true" class="flip"><use href="#arrow"/></svg></a>
         </div>
         <figure class="portrait rv">
           <div class="frame">
@@ -938,6 +944,7 @@ function showCase(id,push){
 }
 function closeCase(){ if(caseDlg.open){ caseDlg.close() } }
 caseDlg.addEventListener('close',function(){ current=null; if(location.hash.indexOf('#case-')===0) history.pushState(null,'',location.pathname+location.search); if(opener){opener.focus();opener=null} });
+$$('[data-case-link]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();opener=a;showCase(a.getAttribute('data-case-link'))})});
 $$('[data-case]').forEach(function(b){b.addEventListener('click',function(){opener=b;showCase(b.dataset.case)})});
 $('#prevCase').addEventListener('click',function(){showCase(this.dataset.go)});
 $('#nextCase').addEventListener('click',function(){showCase(this.dataset.go)});
