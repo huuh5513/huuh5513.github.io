@@ -1,4 +1,3 @@
 User-agent: *
 Allow: /
-
 Sitemap: https://huuh5513.github.io/sitemap.xml
