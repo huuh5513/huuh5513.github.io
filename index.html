@@ -159,14 +159,15 @@ p{margin:0;text-wrap:pretty}
 .proof>div>span{display:block;margin-top:8px;font-size:14px;color:var(--muted);line-height:1.45}
 @media (max-width:860px){
   .hero-grid{grid-template-columns:1fr}
-  .portrait{order:-1;max-width:220px}
-  .portrait .frame{border-radius:22px}
+  .portrait{order:-1;max-width:132px}
+  .portrait .frame{border-radius:20px}
+  .portrait figcaption{display:none}
   .proof{grid-template-columns:1fr 1fr}
   .proof div:nth-child(2){border-inline-end:0}
   .proof div:nth-child(3){padding-inline-start:0;border-top:1px solid var(--line)}
   .proof div:nth-child(4){border-top:1px solid var(--line)}
 }
-@media (max-width:420px){.portrait{max-width:170px}.btn{height:46px;padding:0 18px}}
+@media (max-width:420px){.portrait{max-width:112px}.btn{height:46px;padding:0 18px}}
 
 /* ---------- sections ---------- */
 section{scroll-margin-top:72px}
@@ -439,7 +440,7 @@ dialog[open]{display:flex;align-items:flex-end;justify-content:center}
         <figure class="portrait rv">
           <div class="frame">
             <picture>
-              <source srcset="portrait-sm.webp 320w, portrait.webp 640w" sizes="(max-width:860px) 220px, 420px" type="image/webp">
+              <source srcset="portrait-sm.webp 320w, portrait.webp 640w" sizes="(max-width:860px) 132px, 420px" type="image/webp">
               <img src="portrait.jpg" width="640" height="800" alt="" data-alt-ar="صورة حسام فودة" data-alt-en="Portrait of Hussam Fodah" fetchpriority="high">
             </picture>
           </div>
