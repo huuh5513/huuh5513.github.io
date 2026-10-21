@@ -366,7 +366,8 @@ footer{text-align:center;color:var(--muted);font-size:12.5px;padding-top:28px}
 const CV = {
   phone:"+966541231624", phoneDisplay:"+966 54 123 1624",
   email:"Huuh5513@gmail.com",
-  linkedin:"",                       // paste full LinkedIn URL to show it
+  linkedin:"https://www.linkedin.com/in/hussam-fodah/",   // LinkedIn profile
+  cvFile:"Hussam_Fodah_CV.pdf",                // downloadable CV, shown next to LinkedIn in Contact
   photo:"photo.jpg",                          // put a photo URL / data URI here to replace the monogram
   languages:[
     {name:{ar:"العربية",en:"Arabic"}, level:{ar:"اللغة الأم",en:"Native"}},
@@ -559,7 +560,7 @@ const T = {
   role:{ar:"الدور",en:"Role"}, where:{ar:"الجهة",en:"Where"}, year:{ar:"السنة",en:"Year"},
   challenge:{ar:"التحدي",en:"The challenge"}, whatIDid:{ar:"وش سويت",en:"What I did"}, results:{ar:"النتائج",en:"Results"}, tools:{ar:"الأدوات",en:"Tools"},
   call:{ar:"اتصال",en:"Call"}, wa:{ar:"واتساب",en:"WhatsApp"}, mail:{ar:"إيميل",en:"Email"}, save:{ar:"حفظ الرقم",en:"Save contact"},
-  phoneL:{ar:"الجوال",en:"Mobile"}, waL:{ar:"واتساب",en:"WhatsApp"}, mailL:{ar:"البريد الإلكتروني",en:"Email"}, liL:{ar:"لينكدإن",en:"LinkedIn"},
+  phoneL:{ar:"الجوال",en:"Mobile"}, waL:{ar:"واتساب",en:"WhatsApp"}, mailL:{ar:"البريد الإلكتروني",en:"Email"}, liL:{ar:"لينكدإن",en:"LinkedIn"}, cvL:{ar:"السيرة الذاتية (PDF)",en:"CV (PDF)"}, dlBtn:{ar:"تحميل",en:"Download"},
   cardL:{ar:"بطاقة جهة الاتصال",en:"Contact card"}, cardV:{ar:"الاسم والرقم والإيميل",en:"Name, phone and email"},
   copy:{ar:"نسخ",en:"Copy"}, open:{ar:"فتح",en:"Open"}, saveBtn:{ar:"حفظ",en:"Save"},
   copied:{ar:"تم النسخ",en:"Copied"}, copyFail:{ar:"حدّد النص وانسخه يدوياً",en:"Select the text and copy it manually"},
@@ -797,6 +798,7 @@ const VIEWS={
       {ic:ICON.wa,l:T.waL,v:CV.phoneDisplay,c:CV.phone,h:waHref(),a:T.open,b:1},
       {ic:ICON.mail,l:T.mailL,v:CV.email,c:CV.email,h:mailHref(),a:T.mail},
       ...(CV.linkedin?[{ic:ICON.li,l:T.liL,v:CV.linkedin.replace(/^https?:\/\/(www\.)?/,""),c:CV.linkedin,h:CV.linkedin,a:T.open,b:1}]:[]),
+      ...(CV.cvFile?[{ic:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M12 11v6M9 14l3 3 3-3"/></svg>',l:T.cvL,v:CV.cvFile,c:new URL(CV.cvFile,location.href).href,h:CV.cvFile,a:T.dlBtn,b:1}]:[]),
       {ic:ICON.save,l:T.cardL,v:tr(T.cardV),vcf:1}
     ];
     return `<header class="room-head"><button type="button" class="back" data-go="home"><span>${lang==="ar"?"→":"←"}</span>${esc(tr(T.backHome))}</button></header>
