@@ -392,6 +392,20 @@ const CV = {
   ],
 
   projects:[
+    { id:"lineform", cat:"ops", size:"wide", cover:"flow", image:"lineform-cover.png",
+      badge:{ar:"مشروع شخصي",en:"Personal project"}, year:"2026",
+      title:{ar:"Lineform — محاكي الطوابير",en:"Lineform — Queue Simulation & Decision Tool"},
+      teaser:{ar:"تطبيق ويب ثنائي اللغة يحاكي طوابير الانتظار في العيادات ومراكز الخدمة والمقاهي، ويرتّب التغييرات حسب أثرها على وقت الانتظار.",en:"A bilingual web app that simulates waiting lines in clinics, service centers and cafés, and ranks changes by their impact on wait times."},
+      role:{ar:"تصميم المنتج والتطوير بمساعدة الذكاء الاصطناعي",en:"Product design & AI-assisted development"}, where:{ar:"مشروع شخصي — تطبيق ويب",en:"Personal project — web app"},
+      tools:["Discrete-event simulation","JavaScript","Automated tests","AI-assisted coding"],
+      tags:{ar:["محاكاة","عمليات","تصميم منتج"],en:["Simulation","Operations","Product design"]},
+      skills:["crowd","coord","concept","research"],
+      problem:{ar:"الانتظار الطويل غالباً سببه تصميم الطابور نفسه، لا بطء الموظفين — وهذا ما رأيته في استقبال المستشفيات وفي تشغيل الحشود بالحج.",en:"Long waits usually come from how the line is designed, not from people working slowly — something I saw at hospital front desks and in Hajj crowd operations."},
+      did:{ar:["صممت أداة لبناء أي طابور: معدل الوصول، عدد الكاونترات، مدة الخدمة، وطابور مشترك أو طابور لكل كاونتر.","عرض حي لأشخاص يتحركون عبر الطابور مع مؤشرات الانتظار ونسبة انشغال الكاونترات.","زر «شخّص هذا الطابور» يختبر التغييرات الشائعة ويرتّبها حسب أثرها، ويوضح هل تحتاج موظفين إضافيين.","محرك محاكاة أحداث متقطعة مُتحقق منه مقابل نظرية الطوابير، مع اختبارات آلية وواجهة عربية وإنجليزية."],
+           en:["Designed a tool to build any line: arrivals, counters, visit times, one shared line or a line per counter.","Live view of simulated people moving through the line, with wait metrics and counter utilisation.","A “Diagnose this line” button tests common changes and ranks them by impact, showing whether each needs extra staff.","Discrete-event simulation engine validated against queueing theory, with automated tests and an Arabic/English interface."]},
+      outcomes:[{v:"3",ar:"تحديات تفاعلية",en:"interactive challenges"},{v:"AR / EN",ar:"واجهة ثنائية اللغة",en:"bilingual interface"}],
+      link:"https://lineform-hussam.netlify.app/" },
+
     { id:"tactile", cat:"design", size:"wide", cover:"braille",
       badge:{ar:"مشروع التخرج",en:"Graduation project"},
       year:"2025",
@@ -444,7 +458,7 @@ const CV = {
       outcomes:[{v:"~50",ar:"مريضاً في المناوبة",en:"patients per shift"},{v:"~10K",ar:"ريال تُفوتر كل 8 ساعات",en:"SAR billed per 8 hours"}] },
 
     { id:"sgh", cat:"health", size:"half", cover:"ledger",
-      badge:{ar:"سجلات طبية",en:"Medical records"}, year:"2025",
+      badge:{ar:"سجلات طبية",en:"Medical records"}, year:"2026",
       title:{ar:"سجلات المواليد والتنويم",en:"Newborn & Admission Records"},
       teaser:{ar:"توثيق المواليد في نظام وزارة الصحة وضبط سجلات الدخول والخروج للعناية المركزة والغرف.",en:"Registering newborns on the MOH system and keeping ICU and ward admission records complete."},
       role:{ar:"مدخل بيانات",en:"Data Entry Clerk"}, where:{ar:"مستشفى السعودي الألماني — العزيزية، مكة",en:"Saudi German Hospital — Al-Aziziyah, Makkah"},
@@ -475,10 +489,12 @@ const CV = {
   ],
 
   journey:[
+    {when:"2026 – Present", kind:{ar:"تعليم",en:"Education"}, t:{ar:"طالب ماجستير — الفنون البصرية والتصميم",en:"Master's Student — Visual Arts and Design"}, org:{ar:"جامعة أم القرى · كلية التصميم · قسم الفنون البصرية والتصميم",en:"Umm Al-Qura University · College of Design · Department of Visual Arts and Design"}, p:"fawq"},
+    {when:"Oct 2026", kind:{ar:"مشروع",en:"Project"}, t:{ar:"Lineform — محاكي الطوابير",en:"Lineform — Queue Simulator"}, org:{ar:"مشروع شخصي · تطبيق ويب ثنائي اللغة",en:"Personal project · Bilingual web app"}, p:"lineform"},
     {when:"Jun – Sep 2026", kind:{ar:"عمل",en:"Work"}, t:{ar:"موظف استقبال وفوترة",en:"Front Desk & Billing Receptionist"}, org:{ar:"مجمع الساعدي الطبي",en:"Al-Saedi Medical Center"}, p:"saedi"},
     {when:"Hajj 1447H · 2026", hajj:true, kind:{ar:"موسمي",en:"Seasonal"}, t:{ar:"مشرف رصيف محطة",en:"Station Platform Attendant"}, org:{ar:"قطار المشاعر المقدسة",en:"Al-Mashaaer Train"}, p:"mashaaer"},
+    {when:"Mar – May 2026", kind:{ar:"عمل",en:"Work"}, t:{ar:"مدخل بيانات",en:"Data Entry Clerk"}, org:{ar:"مستشفى السعودي الألماني",en:"Saudi German Hospital"}, p:"sgh"},
     {when:"23 Feb 2025", kind:{ar:"تعليم",en:"Education"}, t:{ar:"بكالوريوس الفنون البصرية",en:"Bachelor of Visual Arts"}, org:{ar:"جامعة أم القرى · كلية التصاميم والفنون · المعدل 3.35",en:"Umm Al-Qura University · College of Design and Arts · GPA 3.35"}, p:"tactile"},
-    {when:"Mar – May 2025", kind:{ar:"عمل",en:"Work"}, t:{ar:"مدخل بيانات",en:"Data Entry Clerk"}, org:{ar:"مستشفى السعودي الألماني",en:"Saudi German Hospital"}, p:"sgh"},
     {when:"6 months", kind:{ar:"تدريب",en:"Training"}, t:{ar:"تدريب إداري وخدمي",en:"Administrative & Service Training"}, org:{ar:"شركة رؤى الأبيات، مكة",en:"Roaa Al-Abyaat Company, Makkah"}},
     {when:"6 months", kind:{ar:"تدريب",en:"Training"}, t:{ar:"تدريب مجتمعي وتوعوي",en:"Community & Awareness Training"}, org:{ar:"معهد النور للمكفوفين، مكة",en:"Al-Noor Institute for the Blind, Makkah"}}
   ],
@@ -560,7 +576,7 @@ const T = {
   role:{ar:"الدور",en:"Role"}, where:{ar:"الجهة",en:"Where"}, year:{ar:"السنة",en:"Year"},
   challenge:{ar:"التحدي",en:"The challenge"}, whatIDid:{ar:"وش سويت",en:"What I did"}, results:{ar:"النتائج",en:"Results"}, tools:{ar:"الأدوات",en:"Tools"},
   call:{ar:"اتصال",en:"Call"}, wa:{ar:"واتساب",en:"WhatsApp"}, mail:{ar:"إيميل",en:"Email"}, save:{ar:"حفظ الرقم",en:"Save contact"},
-  phoneL:{ar:"الجوال",en:"Mobile"}, waL:{ar:"واتساب",en:"WhatsApp"}, mailL:{ar:"البريد الإلكتروني",en:"Email"}, liL:{ar:"لينكدإن",en:"LinkedIn"}, cvL:{ar:"السيرة الذاتية (PDF)",en:"CV (PDF)"}, dlBtn:{ar:"تحميل",en:"Download"},
+  phoneL:{ar:"الجوال",en:"Mobile"}, waL:{ar:"واتساب",en:"WhatsApp"}, mailL:{ar:"البريد الإلكتروني",en:"Email"}, liL:{ar:"لينكدإن",en:"LinkedIn"}, liveDemo:{ar:"افتح الموقع المباشر ↗",en:"Open live demo ↗"}, cvL:{ar:"السيرة الذاتية (PDF)",en:"CV (PDF)"}, dlBtn:{ar:"تحميل",en:"Download"},
   cardL:{ar:"بطاقة جهة الاتصال",en:"Contact card"}, cardV:{ar:"الاسم والرقم والإيميل",en:"Name, phone and email"},
   copy:{ar:"نسخ",en:"Copy"}, open:{ar:"فتح",en:"Open"}, saveBtn:{ar:"حفظ",en:"Save"},
   copied:{ar:"تم النسخ",en:"Copied"}, copyFail:{ar:"حدّد النص وانسخه يدوياً",en:"Select the text and copy it manually"},
@@ -904,6 +920,7 @@ function openCase(id){
       <h4>${esc(tr(T.whatIDid))}</h4><ul>${tr(p.did).map(d=>`<li>${esc(d)}</li>`).join("")}</ul>
       ${p.outcomes?`<h4>${esc(tr(T.results))}</h4><div class="outcomes">${p.outcomes.map(o=>`<div><b>${esc(o.v)}</b><small>${esc(tr(o))}</small></div>`).join("")}</div>`:""}
       <h4>${esc(tr(T.tools))}</h4><div class="tags" style="padding:0">${tools.map(t=>`<span>${esc(t)}</span>`).join("")}</div>
+      ${p.link?`<p style="margin:16px 0 0"><a class="mini solid" href="${esc(p.link)}" target="_blank" rel="noopener">${esc(tr(T.liveDemo))}</a></p>`:""}
       ${p.note?`<div class="note">${esc(tr(p.note))}</div>`:""}</div>`);
 }
 function openCert(i){
