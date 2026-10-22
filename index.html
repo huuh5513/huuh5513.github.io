@@ -51,8 +51,8 @@ if(t==='dark'||t==='light')d.dataset.theme=t;})();
   --f-ar:"SF Arabic","SF Pro Display",-apple-system,BlinkMacSystemFont,"IBM Plex Sans Arabic","Inter",system-ui,sans-serif;
   --w:1024px; --g:22px; color-scheme:light;
 }
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#000000;--alt:#101012;--tile:#1c1c1e;--ink:#f5f5f7;--ink-2:#a1a1a6;--ink-3:#86868b;--line:#38383a;--link:#2997ff;--btn:#0071e3;--nav:rgba(22,22,23,.8);color-scheme:dark}}
-:root[data-theme="dark"]{--bg:#000000;--alt:#101012;--tile:#1c1c1e;--ink:#f5f5f7;--ink-2:#a1a1a6;--ink-3:#86868b;--line:#38383a;--link:#2997ff;--btn:#0071e3;--nav:rgba(22,22,23,.8);color-scheme:dark}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#000000;--alt:#101012;--tile:#1c1c1e;--ink:#f5f5f7;--ink-2:#a1a1a6;--ink-3:#86868b;--line:#38383a;--link:#2997ff;--btn:#0071e3;--nav:rgba(22,22,23,.8);--dark:#161617;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#000000;--alt:#101012;--tile:#1c1c1e;--ink:#f5f5f7;--ink-2:#a1a1a6;--ink-3:#86868b;--line:#38383a;--link:#2997ff;--btn:#0071e3;--nav:rgba(22,22,23,.8);--dark:#161617;color-scheme:dark}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
@@ -745,6 +745,8 @@ if('IntersectionObserver' in window){
   var ro=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');ro.unobserve(en.target)}})},{rootMargin:'0px 0px -8% 0px',threshold:.06});
   $$('.rv').forEach(function(el){ro.observe(el)});
 }else{$$('.rv').forEach(function(el){el.classList.add('in')})}
+function revealVisible(){var h=window.innerHeight;$$('.rv:not(.in)').forEach(function(el){if(el.getBoundingClientRect().top<h*0.98)el.classList.add('in')})}
+window.addEventListener('scroll',revealVisible,{passive:true});window.addEventListener('load',revealVisible);setTimeout(revealVisible,300);setTimeout(function(){$$('.rv').forEach(function(el){el.classList.add('in')})},4000);
 
 /* toast + copy */
 var toastT;
