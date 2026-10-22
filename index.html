@@ -30,9 +30,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700&display=swap">
-<link rel="preload" as="image" href="portrait.webp" type="image/webp">
+<link rel="preload" as="image" href="lf_hero.webp" type="image/webp">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Person","name":"Hussam Hussein Abdullah Fodah","alternateName":["Hussam Fodah","حسام حسين عبدالله فودة","حسام فودة"],"url":"https://huuh5513.github.io/","image":"https://huuh5513.github.io/portrait.jpg","jobTitle":"Patient Services & Operations","nationality":"Saudi","email":"mailto:Huuh5513@gmail.com","telephone":"+966541231624","address":{"@type":"PostalAddress","addressLocality":"Makkah","addressCountry":"SA"},"alumniOf":{"@type":"CollegeOrUniversity","name":"Umm Al-Qura University"},"knowsLanguage":["ar","en"],"sameAs":["https://www.linkedin.com/in/hussam-fodah/"]}
+{"@context":"https://schema.org","@type":"Person","name":"Hussam Hussein Abdullah Fodah","alternateName":["Hussam Fodah","حسام حسين عبدالله فودة","حسام فودة"],"url":"https://huuh5513.github.io/","jobTitle":"Patient Services & Operations","nationality":"Saudi","email":"mailto:Huuh5513@gmail.com","telephone":"+966541231624","address":{"@type":"PostalAddress","addressLocality":"Makkah","addressCountry":"SA"},"alumniOf":{"@type":"CollegeOrUniversity","name":"Umm Al-Qura University"},"knowsLanguage":["ar","en"],"sameAs":["https://www.linkedin.com/in/hussam-fodah/"]}
 </script>
 <script>
 (function(){var d=document.documentElement,l=null,t=null;d.classList.add('js');
@@ -41,7 +41,7 @@ if(l==='en'){d.lang='en';d.dir='ltr';d.dataset.lang='en';}
 if(t==='dark'||t==='light')d.dataset.theme=t;})();
 </script>
 <style>
-/* Layout: Apple-style single column. Thin translucent nav → centered hero with the portrait as the "product shot" → three pillars that tell one story → work tiles (one wide, two half) → numbers → experience spec list → certificates → contact. Alternating white / light-grey bands, one blue for actions. */
+/* Layout: Apple-style single column. Thin translucent nav → centered hero with a laptop showing Lineform as the "product shot" → three pillars that tell one story → work tiles (one wide, two half) → numbers → experience spec list → certificates → contact. Alternating white / light-grey bands, one blue for actions. */
 :root{
   --bg:#ffffff; --alt:#f5f5f7; --tile:#ffffff; --ink:#1d1d1f; --ink-2:#6e6e73; --ink-3:#86868b; --line:#d2d2d7;
   --link:#0066cc; --btn:#0071e3; --btn-h:#0077ed; --btn-ink:#ffffff;
@@ -131,6 +131,15 @@ section{scroll-margin-top:56px}
 .shot{position:relative;width:min(400px,78vw);margin:clamp(40px,6vw,64px) auto 0;border-radius:40px 40px 0 0;overflow:hidden;background:#ececf0;aspect-ratio:4/5}
 .shot img{width:100%;height:100%;object-fit:cover}
 
+.device{width:min(820px,100%);margin:clamp(44px,6vw,72px) auto 0}
+.device .screen{border-radius:18px 18px 0 0;border:10px solid #1d1d1f;border-bottom-width:14px;overflow:hidden;background:#111;direction:ltr;box-shadow:0 30px 60px -30px rgba(0,0,0,.35)}
+.device .screen img{width:100%;aspect-ratio:1062/565;object-fit:cover}
+.device .base{height:14px;margin:0 -6%;background:linear-gradient(#d6d6db,#b9b9bf);border-radius:0 0 14px 14px;position:relative}
+.device .base::before{content:"";position:absolute;left:50%;top:0;width:16%;height:6px;transform:translateX(-50%);background:#a8a8ae;border-radius:0 0 8px 8px}
+:root[data-theme="dark"] .device .base{background:linear-gradient(#3a3a3c,#2c2c2e)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .device .base{background:linear-gradient(#3a3a3c,#2c2c2e)}}
+.device .cap{margin-top:22px;font-size:15px;color:var(--ink-3)}
+.device .cap .more{font-size:15px}
 /* pillars */
 .pillars{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
 .pillar{background:var(--tile);border-radius:28px;padding:34px 30px 32px;display:flex;flex-direction:column;gap:6px;min-width:0}
@@ -336,12 +345,11 @@ dialog[open]{display:flex;align-items:flex-end;justify-content:center}
         <a class="more" href="#work"><span data-l="ar">شاهد الأعمال</span><span data-l="en">See my work</span></a>
         <a class="more" href="https://huuh5513.github.io/Hussam_Fodah_CV.pdf" target="_blank" rel="noopener"><span data-l="ar">السيرة الذاتية PDF</span><span data-l="en">CV (PDF)</span></a>
       </div>
-      <div class="shot rv">
-        <picture>
-          <source srcset="portrait-sm.webp 400w, portrait.webp 960w" sizes="(max-width:520px) 78vw, 400px" type="image/webp">
-          <img src="portrait.jpg" width="960" height="1200" alt="" data-alt-ar="صورة حسام فودة" data-alt-en="Portrait of Hussam Fodah" fetchpriority="high">
-        </picture>
-      </div>
+      <div class="device rv">
+        <div class="screen"><img src="lf_hero.webp" width="1062" height="565" alt="" data-alt-ar="لقطة من Lineform، محاكي الطوابير الذي بنيته" data-alt-en="Screenshot of Lineform, the queue simulator I built" fetchpriority="high"></div>
+        <div class="base" aria-hidden="true"></div>
+        <p class="cap"><span data-l="ar">أحدث عمل: </span><span data-l="en">Latest work: </span><button class="more" type="button" data-case="lineform">Lineform</button></p>
+      </div></div>
     </div>
   </section>
 
