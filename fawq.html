@@ -243,7 +243,6 @@ button{font:inherit;color:inherit}
       <blockquote id="r-wisdom"></blockquote>
       <p class="no" id="r-no"></p>
     </article>
-    <button class="more reveal" style="animation-delay:.7s" id="more">رسالة ثانية ↻</button>
 
     <div class="foot reveal" style="animation-delay:.8s">
       <span><b>فوق أم تحت؟</b> · حسام فودة، ٢٠٢٦</span>
@@ -324,12 +323,7 @@ button{font:inherit;color:inherit}
   if(mode === "live") return liveMode();
 
   var saved = store();
-  if(saved && saved.side){
-    var L = WIS[saved.side].length, ni = saved.idx;
-    if(L > 1){ while(ni === saved.idx){ ni = Math.floor(Math.random()*L); } }
-    saved.idx = ni; store(saved);
-    showResult(saved.side, saved.rank, ni, true);
-  }
+  if(saved && saved.side){ showResult(saved.side, saved.rank, saved.idx, true); }
 
   /* ---------- choose ---------- */
   var stage = $("stage"), sheet = $("sheet"), chosen = null;
@@ -374,15 +368,6 @@ button{font:inherit;color:inherit}
     var list = WIS[side];
     $("r-wisdom").textContent = list[idx] || list[0];
     $("r-no").textContent = "رسالة " + ar(idx+1) + " من " + ar(list.length) + " · لمن اختار «" + name + "»";
-    var cur = idx;
-    $("more").onclick = function(){
-      var L = list.length, n = cur; if(L > 1){ while(n === cur){ n = Math.floor(Math.random()*L); } }
-      cur = n; var c = document.querySelector(".card");
-      c.style.animation = "none"; void c.offsetWidth; c.style.animation = "rise .6s cubic-bezier(.2,.7,.2,1) forwards";
-      $("r-wisdom").textContent = list[n];
-      $("r-no").textContent = "رسالة " + ar(n+1) + " من " + ar(L) + " · لمن اختار «" + name + "»";
-      var sv = store(); if(sv){ sv.idx = n; store(sv); }
-    };
     $("r-eyebrow").textContent = rank > 0 ? ("صوتك رقم " + ar(rank) + " في «" + name + "»") : ("اخترت «" + name + "»");
     $("tl-" + side).classList.add("mine");
     if(returning){ $("r-note").textContent = "صوّتَّ من قبل على هذا الجهاز. هذه نتيجتك، والأرقام محدّثة الآن."; }
@@ -417,7 +402,9 @@ button{font:inherit;color:inherit}
       $("r-t").textContent = agree === 1 ? "شخص واحد يتفق معك" : (agree === 2 ? "شخصان يتفقان معك" : (agree <= 10 ? "أشخاص يتفقون معك" : "شخصًا يتفقون معك"));
     }
     var pct = total ? Math.round(mine*100/total) : 100;
-    $("r-share").textContent = pct >= 50
+    $("r-share").textContent = pct === 50
+      ? "نصف المصوّتين في صفّك. الكفّة متعادلة الآن."
+      : pct > 50
       ? ar(pct) + "٪ من المصوّتين في صفّك. أنت مع الأغلبية."
       : ar(pct) + "٪ من المصوّتين في صفّك. رأيك أقلّ شيوعًا، وهذا لا يجعله أقلّ صوابًا.";
     $("v-up").textContent = ar(up); $("v-down").textContent = ar(down);
