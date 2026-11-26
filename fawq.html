@@ -144,6 +144,8 @@ button{font:inherit;color:inherit}
 .is-down .card .k{color:var(--ash)}
 .is-down .card blockquote{font-size:clamp(20px,5.4vw,25px);font-weight:400}
 
+.more{all:unset;cursor:pointer;align-self:center;margin-top:-14px;padding:10px 18px;border-radius:99px;font-size:14px;font-weight:600;border:1px solid currentColor;opacity:.8}
+.more:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
 .foot{display:flex;flex-direction:column;gap:6px;font-size:12px;opacity:.6;line-height:1.7;border-top:1px solid currentColor;border-color:rgba(128,120,110,.3);padding-top:18px}
 .foot b{font-weight:600}
 .again{all:unset;cursor:pointer;font-size:12px;text-decoration:underline;text-underline-offset:3px;opacity:.7;align-self:flex-start}
@@ -241,6 +243,7 @@ button{font:inherit;color:inherit}
       <blockquote id="r-wisdom"></blockquote>
       <p class="no" id="r-no"></p>
     </article>
+    <button class="more reveal" style="animation-delay:.7s" id="more">رسالة ثانية ↻</button>
 
     <div class="foot reveal" style="animation-delay:.8s">
       <span><b>فوق أم تحت؟</b> · حسام فودة، ٢٠٢٦</span>
@@ -321,7 +324,12 @@ button{font:inherit;color:inherit}
   if(mode === "live") return liveMode();
 
   var saved = store();
-  if(saved && saved.side){ showResult(saved.side, saved.rank, saved.idx, true); }
+  if(saved && saved.side){
+    var L = WIS[saved.side].length, ni = saved.idx;
+    if(L > 1){ while(ni === saved.idx){ ni = Math.floor(Math.random()*L); } }
+    saved.idx = ni; store(saved);
+    showResult(saved.side, saved.rank, ni, true);
+  }
 
   /* ---------- choose ---------- */
   var stage = $("stage"), sheet = $("sheet"), chosen = null;
@@ -366,6 +374,15 @@ button{font:inherit;color:inherit}
     var list = WIS[side];
     $("r-wisdom").textContent = list[idx] || list[0];
     $("r-no").textContent = "رسالة " + ar(idx+1) + " من " + ar(list.length) + " · لمن اختار «" + name + "»";
+    var cur = idx;
+    $("more").onclick = function(){
+      var L = list.length, n = cur; if(L > 1){ while(n === cur){ n = Math.floor(Math.random()*L); } }
+      cur = n; var c = document.querySelector(".card");
+      c.style.animation = "none"; void c.offsetWidth; c.style.animation = "rise .6s cubic-bezier(.2,.7,.2,1) forwards";
+      $("r-wisdom").textContent = list[n];
+      $("r-no").textContent = "رسالة " + ar(n+1) + " من " + ar(L) + " · لمن اختار «" + name + "»";
+      var sv = store(); if(sv){ sv.idx = n; store(sv); }
+    };
     $("r-eyebrow").textContent = rank > 0 ? ("صوتك رقم " + ar(rank) + " في «" + name + "»") : ("اخترت «" + name + "»");
     $("tl-" + side).classList.add("mine");
     if(returning){ $("r-note").textContent = "صوّتَّ من قبل على هذا الجهاز. هذه نتيجتك، والأرقام محدّثة الآن."; }
