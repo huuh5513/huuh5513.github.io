@@ -332,7 +332,7 @@ button{font:inherit;color:inherit}
     stage.classList.remove("pick-up","pick-down"); stage.classList.add("pick-" + side);
     $("sheet-title").textContent = side === "up" ? "اخترت «فوق»" : "اخترت «تحت»";
     $("sheet-text").textContent = side === "up"
-      ? "اللوحة المرسومة بتأنٍّ. لكل شخص صوت واحد."
+      ? "اللوحة المرسومة بتعب وإتقان. لكل شخص صوت واحد."
       : "الموزة والشريط اللاصق. لكل شخص صوت واحد.";
     sheet.classList.add("open"); 
     setTimeout(function(){ $("confirm").focus(); }, 300);
