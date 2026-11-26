@@ -59,8 +59,8 @@ button{font:inherit;color:inherit}
 @keyframes nudge{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
 /* rope */
 .rope{position:absolute;top:0;left:50%;transform:translateX(-50%);z-index:3;pointer-events:none;width:min(100%,820px);height:100%}
-.knot{position:absolute;z-index:4;left:50%;top:50%;transform:translate(-50%,-50%);width:58px;height:58px;border-radius:50%;
-  display:grid;place-items:center;font-family:var(--classic);font-size:22px;color:var(--oil);
+.knot{position:absolute;z-index:4;left:50%;top:50%;transform:translate(-50%,-50%);padding:10px 22px 12px;border-radius:99px;white-space:nowrap;
+  display:grid;place-items:center;font-family:var(--classic);font-weight:700;font-size:clamp(20px,5.6vw,26px);line-height:1.2;color:var(--oil);
   background:radial-gradient(circle at 35% 30%,#f4dca7,#b88a45 65%,#6d4c1f);box-shadow:0 6px 20px rgba(0,0,0,.45),inset 0 -3px 6px rgba(0,0,0,.25);pointer-events:none}
 .brand{position:absolute;z-index:5;top:calc(env(safe-area-inset-top,0px) + 14px);inset-inline:0;display:flex;justify-content:space-between;padding-inline:18px;
   font-size:11px;letter-spacing:.08em;color:rgba(242,233,216,.62);pointer-events:none}
@@ -184,7 +184,6 @@ button{font:inherit;color:inherit}
     <span class="art" aria-hidden="true"></span>
     <span class="inner">
       <span class="word">فوق</span>
-      <span class="cap">الفن كما كان · أيامٌ من الصبر</span>
       <span class="pill pill-up">صوّت لـ «فوق» <i aria-hidden="true">↑</i></span>
     </span>
   </button>
@@ -193,7 +192,6 @@ button{font:inherit;color:inherit}
     <span class="banana" aria-hidden="true"></span>
     <span class="inner">
       <span class="word">تحت</span>
-      <span class="cap">الفن كما صار · ثلاث ثوانٍ وفكرة</span>
       <span class="pill pill-down">صوّت لـ «تحت» <i aria-hidden="true">↓</i></span>
     </span>
   </button>
@@ -210,8 +208,8 @@ button{font:inherit;color:inherit}
       <path d="M50.6 51 L47 57 L45 61 L39 66 M49.4 51 L53 57 L55 61 L61 66" stroke="#5a524a" stroke-width="1.5" vector-effect="non-scaling-stroke" opacity=".6"/>
     </g>
   </svg>
-  <div class="knot" aria-hidden="true">أم</div>
-  <div class="hint" id="hint">أيّهما الفن في رأيك؟ <b>اضغط على اختيارك</b></div>
+  <div class="knot" aria-hidden="true">أيّهما الفن؟</div>
+  <div class="hint" id="hint" hidden></div>
 </main>
 
 <section class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheet-title">
@@ -334,7 +332,7 @@ button{font:inherit;color:inherit}
     $("sheet-text").textContent = side === "up"
       ? "اللوحة المرسومة بتأنٍّ: الفن كما كان. صوت واحد لكل شخص، وبعده تعرف كم شخصًا يتفق معك وتصلك حكمة عنك."
       : "الموزة والشريط: الفن كما صار. صوت واحد لكل شخص، وبعده تعرف كم شخصًا يتفق معك وتصلك حكمة عنك.";
-    sheet.classList.add("open"); $("hint").hidden = true;
+    sheet.classList.add("open"); 
     setTimeout(function(){ $("confirm").focus(); }, 300);
   }
   function close(){ sheet.classList.remove("open"); stage.classList.remove("pick-up","pick-down"); chosen = null; }
