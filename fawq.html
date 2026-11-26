@@ -282,8 +282,9 @@ button{font:inherit;color:inherit}
       return r.json();
     }).then(function(j){ return Number(j.value)||0; });
   }
-  var hit = function(k){ return req("/hit/" + NS + "/" + k); };
-  var get = function(k){ return req("/get/" + NS + "/" + k); };
+  var KEY = { up: "vote-fawq", down: "vote-taht" };
+  var hit = function(k){ return req("/hit/" + NS + "/" + KEY[k]); };
+  var get = function(k){ return req("/get/" + NS + "/" + KEY[k]); };
 
   // fixed shuffle so consecutive voters on the same side get different wisdom
   function perm(n, seed){
